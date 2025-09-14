@@ -1,39 +1,55 @@
 package Lab1_AdvJava;
+import java.util.Scanner;
 
 public class DigitsDescending {
     public static int sortDigitsDescending(int num) {
-        String numStr = String.valueOf(num);
-        int length = numStr.length();
-        
-        int[] digits = new int[length];
-        for (int i = 0; i < length; i++) {
-            digits[i] = Character.getNumericValue(numStr.charAt(i));
+        if (num == 0) {
+            return 0;
         }
         
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = 0; j < length - i - 1; j++) {
+        char[] digits = String.valueOf(num).toCharArray();
+        int n = digits.length;
+        
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 if (digits[j] < digits[j + 1]) {
-
-                    int temp = digits[j];
+                    char temp = digits[j];
                     digits[j] = digits[j + 1];
                     digits[j + 1] = temp;
                 }
             }
         }
-        
-        
-        int result = 0;
-        for (int digit : digits) {
-            result = result * 10 + digit;
-        }
-        
-        return result;
+        return Integer.parseInt(new String(digits));
     }
     
     public static void main(String[] args) {
-        System.out.println("Input: 42145 → Output: " + sortDigitsDescending(42145));
-        System.out.println("Input: 145263 → Output: " + sortDigitsDescending(145263));
-        System.out.println("Input: 951730 → Output: " + sortDigitsDescending(951730));
-        System.out.println("Input: 9338491 → Output: " + sortDigitsDescending(9338491));
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("=== DIGITS DESCENDING SORTER ===");
+        System.out.println("Enter non-negative integers (enter -1 to exit)");
+        
+        while (true) {
+            System.out.print("\nEnter a number: ");
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input! Please enter a valid number.");
+                scanner.next();
+                continue;
+            }
+            
+            int input = scanner.nextInt();
+            if (input == -1) {
+                System.out.println("Exiting program...");
+                break;
+            }
+            
+            if (input < 0) {
+                System.out.println("Please enter a non-negative number!");
+                continue;
+            }
+            int result = sortDigitsDescending(input);
+            System.out.println("Input: " + input + " → Output: " + result);
+        }
+        
+        scanner.close();
     }
 }
