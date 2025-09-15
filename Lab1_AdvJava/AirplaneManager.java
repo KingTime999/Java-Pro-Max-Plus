@@ -8,24 +8,24 @@ public class AirplaneManager {
         
         System.out.println("=== AIRPLANE MANAGEMENT SYSTEM ===");
         
-        // Tạo các chuyến bay từ input người dùng
+        
         Airplane flight1 = createAirplaneFromInput(scanner, 1);
         Airplane flight2 = createAirplaneFromInput(scanner, 2);
         
-        // Hiển thị trạng thái ban đầu
+        
         System.out.println("\n=== Initial Status ===");
         flight1.checkStatus();
         flight2.checkStatus();
         
-        // Xử lý delay
+        
         System.out.println("\n=== Delay Processing ===");
         processDelays(scanner, flight1, flight2);
         
-        // Cập nhật thông tin
+        
         System.out.println("\n=== Update Information ===");
         updateFlightInfo(scanner, flight1, flight2);
         
-        // Hiển thị thông tin cuối cùng
+        
         System.out.println("\n=== Final Status ===");
         System.out.println(flight1);
         System.out.println(flight2);
@@ -47,7 +47,7 @@ public class AirplaneManager {
         
         System.out.print("Departure Minute (0-59): ");
         int minute = scanner.nextInt();
-        scanner.nextLine(); // clear buffer
+        scanner.nextLine(); 
         
         LocalTime departureTime = LocalTime.of(hour, minute);
         return new Airplane(number, destination, departureTime);
@@ -57,7 +57,7 @@ public class AirplaneManager {
         for (Airplane flight : flights) {
             System.out.print("Enter delay time for " + flight.getFlightNumber() + " (minutes, 0 for no delay): ");
             int delay = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine(); 
             
             if (delay > 0) {
                 flight.delay(delay);
@@ -78,7 +78,7 @@ public class AirplaneManager {
             
             System.out.print("New delay to add (minutes, 0 for no change): ");
             int additionalDelay = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
+            scanner.nextLine(); 
             
             if (additionalDelay > 0) {
                 flight.delay(additionalDelay);

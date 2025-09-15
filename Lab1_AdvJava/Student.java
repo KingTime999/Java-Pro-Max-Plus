@@ -11,7 +11,7 @@ public class Student {
         this.grade = grade;
     }
     
-    // Getter methods
+    
     public String getId() {
         return id;
     }
@@ -24,7 +24,7 @@ public class Student {
         return grade;
     }
     
-    @Override
+
     public String toString() {
         return "ID: " + id + ", Name: " + name + ", Grade: " + grade;
     }

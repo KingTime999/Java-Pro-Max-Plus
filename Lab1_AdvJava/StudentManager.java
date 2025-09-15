@@ -10,7 +10,7 @@ public class StudentManager {
         ArrayList<Student> students = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         
-        // Thêm sinh viên
+
         students.add(new Student("S001", "Nguyen Van A", 8.5));
         students.add(new Student("S002", "Tran Thi B", 7.2));
         students.add(new Student("S003", "Le Van C", 9.1));
@@ -28,7 +28,7 @@ public class StudentManager {
             System.out.print("Enter your choice: ");
             
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
             
             switch (choice) {
                 case 1:
@@ -113,7 +113,7 @@ public class StudentManager {
         
         System.out.print("Enter student grade: ");
         double grade = scanner.nextDouble();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         
         students.add(new Student(id, name, grade));
         System.out.println("Student added successfully.");
